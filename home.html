@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+    <title>NimbusNow</title>
+</head>
+
+<body>
+    <!-- header section -->
+    <header class="magical-header">
+        <nav class="magical-nav">
+            <ul>
+                <li><a href="home.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+            </ul>
+        </nav>
+        <h1 class="app-title">NimbusNow</h1>
+        <div class="input-container">
+            <input type="text" id="loc" class="input-field" placeholder="Enter a city or zip">
+            <button id="searchBtn" class="btn magical-btn">Search</button>
+            <button id="currentlocBtn" class="btn magical-btn">Current Location</button>
+            <select id="unitSelect" class="magical-select">
+                <option value="metric">Metric (°C, km/h)</option>
+                <option value="imperial">Imperial (°F, mph)</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- main section -->
+    <main>
+        <div class="weather-grid">
+            <!-- Weather Info -->
+            <div class="weather-grid1">
+                <div class="weather-info magical-card">
+                    <h2 id="location" class="location-name"></h2>
+                    <p id="temperature" class="temp"></p>
+                    <p id="description" class="description"></p>
+                    <img id="weatherIcon" src="" alt="Weather Icon">
+                    <p id="humidity">Humidity: <span id="Humid-val"></span></p>
+                    <p id="wind">Wind: <span id="wind-val"></span> <span id="wind-unit"></span></p>
+                    <p id="pressure">Pressure: <span id="press-val"></span> </p>
+                </div>
+
+                <!-- Forecast Info -->
+                <div class="forecast magical-card">
+                    <h3>Forecast</h3>
+                    <ul>
+                        <li>Today: <span id="today-forecast"></span></li>
+                        <li>Tomorrow: <span id="tomorrow-forecast"></span></li>
+                        <li>Day after tomorrow: <span id="day-after-tomorrow-forecast"></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hourly Forecast -->
+            <div class="hourly-forecast">
+                <h3>Hourly Forecast</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Icon</th>
+                            <th>Temperature</th>
+                            <th>Description</th>
+                            <th>Rain Chance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Hourly forecast rows will be inserted here -->
+                    </tbody>
+                </table>
+                <button id="view-more-btn" style="display: none;">View More</button>
+            </div>
+
+            <!-- Rain Forecast Chart -->
+            <div class="rain-forecast-chart magical-card">
+                <canvas id="rainChart"></canvas>
+            </div>
+
+            <!-- Weather Map -->
+            <div class="weather-map magical-card">
+                <div id="map"></div>
+            </div>
+        </div>
+        <div class="background-img"></div>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2024 NimbusNow | Magical Weather App</p>
+        <p>Powered by <a href="#" target="_blank">OpenWeatherMap API</a></p>
+    </footer>
+
+    <!-- Modal for Weather Alerts -->
+    <div id="weather-alert-modal" class="modal">
+        <div class="modal-content magical-modal">
+            <h2>Weather Alert</h2>
+            <p id="weather-alert-message"></p>
+            <button id="close-modal" class="btn magical-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>
